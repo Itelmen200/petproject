@@ -47,7 +47,7 @@ resource "aws_ecr_repository" "server" {
   name                 = "server-${terraform.workspace}"
 }
 
-resource "github_actions_environment_secret" "repository_url" {
+resource "github_actions_environment_secret" "repository_name" {
   repository        = var.repository
   environment       = github_repository_environment.example.environment
   secret_name       = "ECR_REPOSITORY"
