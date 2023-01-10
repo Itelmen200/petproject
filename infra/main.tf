@@ -47,7 +47,7 @@ resource "github_actions_environment_secret" "aws_secret_access_key" {
 }
 
 resource "aws_ecr_repository" "server" {
-  name                 = "server"
+  name                 = "server-${terraform.workspace}"
 }
 
 resource "github_actions_environment_secret" "repository_url" {
