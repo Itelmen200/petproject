@@ -51,7 +51,7 @@ resource "github_actions_environment_secret" "repository_url" {
   repository        = var.repository
   environment       = github_repository_environment.example.environment
   secret_name       = "ECR_REPOSITORY"
-  plaintext_value   = aws_ecr_repository.server.repository_url
+  plaintext_value   = aws_ecr_repository.server.name
 }
 
 resource "github_actions_environment_secret" "aws_region" {
