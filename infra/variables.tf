@@ -13,5 +13,5 @@ variable "AWS_SECRET_ACCESS_KEY" {
 }
 
 variable "AWS_REGION" {
-  default = "eu-central-1"
+  default = "us-east-1"
 }
