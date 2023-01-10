@@ -1,16 +1,13 @@
-terraform {
-  required_providers {
-    github = {
-      source  = "integrations/github"
-      version = "~> 5.0"
-    }
-  }
-}
 
 # Configure the GitHub Provider
 provider "github" {
     token = var.GITHUB_TOKEN
 }
+
+provider "aws" {
+    region = "eu-central-1"
+}
+
 
 terraform {
   backend "s3" {
@@ -57,5 +54,10 @@ resource "github_actions_environment_secret" "repository_url" {
   plaintext_value   = aws_ecr_repository.server.repository_url
 }
 
-
+resource "github_actions_environment_secret" "aws_region" {
+  repository        = var.repository
+  environment       = github_repository_environment.example.environment
+  secret_name       = "AWS_REGION"
+  plaintext_value   = var.AWS_REGION
+}
 
